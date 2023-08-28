@@ -1,0 +1,122 @@
+@use "colors" as *;
+
+body {
+  background-color: $clr-bg-primary;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+// 450 X 600
+
+.product {
+  width: min(37.5rem, 90%);
+  display: grid;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  grid-template-areas: "image information";
+  grid-template-columns: auto 1fr;
+
+  &__image {
+    width: 18.75rem;
+    height: auto;
+    object-fit: contain;
+    grid-area: image;
+    display: block;
+  }
+
+  &__type {
+    margin-block: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.225rem;
+    font-size: 0.8rem;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    color: $clr-text-secondary;
+  }
+
+  &__title {
+    margin-block: 1.5rem 1rem;
+    font-size: 1.75rem;
+    font-family: "Fraunces", serif;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  &__excerpt {
+    margin-block: 0;
+    font-size: 0.875rem;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    line-height: 1.6;
+    color: $clr-text-secondary;
+  }
+
+  &__price {
+    margin-block: auto 1.5rem;
+    font-size: 1.75rem;
+    line-height: 1;
+    font-family: "Fraunces", sans-serif;
+    font-weight: 700;
+    color: $clr-bg-button;
+
+    &--old {
+      margin-left: 1em;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 500;
+      text-decoration: line-through;
+      color: $clr-text-secondary;
+      font-size: 0.5em;
+      vertical-align: 0.4em;
+    }
+  }
+}
+
+.btn-add-to-cart {
+  line-height: 1;
+  font-size: 0.875rem;
+  font-family: Montserrat;
+  font-weight: 700;
+  background-color: $clr-bg-button;
+  color: $clr-bg-secondary;
+  text-align: center;
+  padding-block: 1em;
+  width: 100%;
+  border-radius: 0.5em;
+  border: 0;
+
+  @media (hover: hover) {
+    transition: background-color 0.25s ease-out;
+    &:hover {
+      background-color: $clr-bg-button-hover;
+    }
+  }
+
+  @media (hover: none) {
+    &:focus {
+      animation: btn-bg-color-changer 1s ease-in-out;
+    }
+    @keyframes btn-bg-color-changer {
+      50% {
+        background-color: $clr-bg-button-hover;
+      }
+    }
+  }
+
+  &::before {
+    content: url("../images/icon-cart.svg");
+    height: 1em;
+    margin-inline-end: 1em;
+    color: $clr-bg-secondary;
+    vertical-align: -0.2em;
+  }
+}
+
+.wrapper-product-content {
+  display: flex;
+  flex-direction: column;
+  background-color: $clr-bg-secondary;
+  padding: clamp(1rem, 5vmin, 2rem);
+  grid-area: information;
+}

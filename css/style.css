@@ -1,0 +1,112 @@
+body {
+  background-color: hsl(30, 38%, 92%);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.product {
+  width: min(37.5rem, 90%);
+  display: grid;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  grid-template-areas: "image information";
+  grid-template-columns: auto 1fr;
+}
+.product__image {
+  width: 18.75rem;
+  height: auto;
+  object-fit: contain;
+  grid-area: image;
+  display: block;
+}
+.product__type {
+  margin-block: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.225rem;
+  font-size: 0.8rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  color: hsl(228, 12%, 48%);
+}
+.product__title {
+  margin-block: 1.5rem 1rem;
+  font-size: 1.75rem;
+  font-family: "Fraunces", serif;
+  font-weight: 700;
+  line-height: 1;
+}
+.product__excerpt {
+  margin-block: 0;
+  font-size: 0.875rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  line-height: 1.6;
+  color: hsl(228, 12%, 48%);
+}
+.product__price {
+  margin-block: auto 1.5rem;
+  font-size: 1.75rem;
+  line-height: 1;
+  font-family: "Fraunces", sans-serif;
+  font-weight: 700;
+  color: hsl(158, 36%, 37%);
+}
+.product__price--old {
+  margin-left: 1em;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  text-decoration: line-through;
+  color: hsl(228, 12%, 48%);
+  font-size: 0.5em;
+  vertical-align: 0.4em;
+}
+
+.btn-add-to-cart {
+  line-height: 1;
+  font-size: 0.875rem;
+  font-family: Montserrat;
+  font-weight: 700;
+  background-color: hsl(158, 36%, 37%);
+  color: hsl(0, 0%, 100%);
+  text-align: center;
+  padding-block: 1em;
+  width: 100%;
+  border-radius: 0.5em;
+  border: 0;
+}
+@media (hover: hover) {
+  .btn-add-to-cart {
+    transition: background-color 0.25s ease-out;
+  }
+  .btn-add-to-cart:hover {
+    background-color: hsl(156, 42%, 18%);
+  }
+}
+@media (hover: none) {
+  .btn-add-to-cart:focus {
+    animation: btn-bg-color-changer 1s ease-in-out;
+  }
+  @keyframes btn-bg-color-changer {
+    50% {
+      background-color: hsl(156, 42%, 18%);
+    }
+  }
+}
+.btn-add-to-cart::before {
+  content: url("../images/icon-cart.svg");
+  height: 1em;
+  margin-inline-end: 1em;
+  color: hsl(0, 0%, 100%);
+  vertical-align: -0.2em;
+}
+
+.wrapper-product-content {
+  display: flex;
+  flex-direction: column;
+  background-color: hsl(0, 0%, 100%);
+  padding: clamp(1rem, 5vmin, 2rem);
+  grid-area: information;
+}

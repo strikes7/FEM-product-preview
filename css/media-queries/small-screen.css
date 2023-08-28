@@ -1,0 +1,13 @@
+@media screen and (max-width: 56em) {
+  .product {
+    grid-template-areas: "image" "information";
+    width: min(344px, 90%);
+    grid-template-columns: 1fr;
+  }
+  .product__image {
+    width: 100%;
+  }
+  .product__excerp {
+    margin-block-end: 1.5rem;
+  }
+}
